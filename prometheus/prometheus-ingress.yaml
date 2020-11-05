@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  generation: 6
+  name: prometheus
+  namespace: dev-ops
+spec:
+  rules:
+  - host: prometheus-dev.eddidapp.com
+    http:
+      paths:
+      - backend:
+          serviceName: prometheus
+          servicePort: 9090
+        path: /
+status:
+  loadBalancer:
+    ingress:
+    - ip: 39.108.42.150
+
